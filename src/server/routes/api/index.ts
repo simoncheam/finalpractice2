@@ -1,10 +1,10 @@
-import {Router} from 'express';
+import * as express from 'express'; 
 
 import booksRouter from './books';
 import categoriesRouter from './categories';
 import usersRouter from './users';
 
-const router = Router();
+const router = express.Router();
 
 router.use('/books', booksRouter);
 router.use('/categories', categoriesRouter);
