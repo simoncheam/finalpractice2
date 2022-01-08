@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 
 
 const App = (props: AppProps) => {
-	const [greeting, setGreeting] = useState<string>('');
 
 	
 

@@ -9,7 +9,7 @@ const router = Router();
 
 router.get('/', tokenCheck, async(req , res) => {
 
-    res.status(200).json( {message: 'valid user!'});
+    res.status(200).json( {message: 'valid'});
 
 })
 export default router; 
