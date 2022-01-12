@@ -52,7 +52,7 @@ const Register = () => {
     return (
         <div>
             <h1 className="display-3 m-3 text-center" >Register Here </h1>
-            <div className="row m-5 justify-content-center" >
+            <div className="row justify-content-center" >
                 <div className="form-group col-6">
 
 
@@ -66,7 +66,7 @@ const Register = () => {
 
                     <input type="text"
                         value={userEmail}
-                        placeholder='username'
+                        placeholder='email'
                         className='form-control m-2'
                         onChange={(e: React.ChangeEvent<HTMLInputElement>) => setUserEmail(e.target.value)}
                     />

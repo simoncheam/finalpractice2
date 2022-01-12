@@ -29,8 +29,9 @@ const Books = () => {
 
 
     return (
-        <div >
-            <h1 className="row justify-content-center">Book Listing</h1>
+        <div className="row m-2 justify-content-center" >
+            <h1 className="row justify-content-center">Featured Books</h1>
+            <h3 className="row my-2 justify-content-center">Login to add yours today</h3>
             <div className=''>
                 {books.map(book => (
                     <div key={`book-${book.id}`} className="row justify-content-center m-2">

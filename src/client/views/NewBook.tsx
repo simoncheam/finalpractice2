@@ -76,10 +76,10 @@ const NewBook = () => {
                 <section className="row justify-content-center">
                     <div className="col-md-6">
                         <div className="card shadow">
-                            <div className="card-header"> Welcome to the book entry page📚 </div>
+                            <div className="card-header"> Ready to add your book to the store?📚 </div>
 
                             <div className="card-body">
-                                <h1>Complete the fields below to add to the store: </h1>
+                                <h1>Complete the fields below to begin: </h1>
                                 <div className="form-group m-2">
 
 
