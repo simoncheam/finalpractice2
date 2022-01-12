@@ -1,15 +1,59 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router';
-import { Link } from 'react-router-dom';
-import { Books, Categories } from '../client_types';
+import { Navigate, Outlet, useNavigate, useParams } from 'react-router';
 import { APIService, TOKEN_KEY } from '../services/APIService';
 
-const PrivateWrapper = () => {
-    return (
-        <div> Private Wrapper
+const PrivateWrapper = ({ children }: PrivateRouteProps) => {
 
-        </div>
-    )
+    const nav = useNavigate();
+
+    const [isAuthed, setIsAuthed] = useState(false)
+    const [isLoaded, setIsLoaded] = useState<boolean>(false)
+
+    useEffect(() => {
+
+        APIService(`/auth/validate`)
+            .then(res => {
+
+                const tokenStatus = res.message === 'valid';
+                console.log({ tokenStatus });
+                setIsAuthed(tokenStatus)
+                setIsLoaded(true)
+            })
+            .catch(error => {
+                setIsLoaded(true)
+                console.log(error);
+                console.log('not authorized!');
+
+            });
+
+    }, [])
+
+    if (!isLoaded) return <>loading</>;
+
+    if (!isAuthed) {
+        return <Navigate to='/login' />
+    } else {
+        console.log('enter private router');
+        return (
+            <>
+                {/* <h1>private route</h1> */}
+                {children}
+
+                <Outlet />
+                {/* outlet lets you do nested routes */}
+
+            </>
+        )
+
+    }
+
 }
+
+interface PrivateRouteProps {
+    path?: string;
+    exact?: boolean;
+    children?: React.ReactNode;
+}
+
 
 export default PrivateWrapper

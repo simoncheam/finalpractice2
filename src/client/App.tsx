@@ -12,7 +12,7 @@ import NewBook from './views/NewBook';
 import Register from './views/Register';
 
 
-const App = (props: AppProps) => {
+const App = () => {
 
 
 
@@ -34,24 +34,22 @@ const App = (props: AppProps) => {
 					{/* Login */}
 					<Route path="/login" element={<Login />}></Route>
 
-					{/*Edit book  */} // private
-
 					{/*Books Detail  */}
 					<Route path="/books/:id" element={<BookDetail />}></Route>
-
 
 					{/*Books  */}
 					<Route path="/books" element={<Books />}></Route>
 
-					// ! setup PRIVATE routes and wrapper
 
 					{/* create, update, delete routes need to be private */}
-					<Route path="/" element={<PrivateWrapper />}>
-						<Route path='secret1' />
+					{/* //? typing issue  */}
+
+					<Route path="/" element={< PrivateWrapper />}>
+
 
 						{/*Create new book  */}
 						<Route path="books/new" element={<NewBook />} />
-						<Route path="books/:id/update" element={<Edit />}></Route>
+						<Route path="books/:id/update" element={<Edit />} />
 
 					</Route>
 
@@ -71,7 +69,10 @@ const App = (props: AppProps) => {
 	);
 };
 
-interface AppProps { }
+interface AppProps {
+	// children?: React.ReactNode;
+	children: { children: JSX.Element }
+}
 
 
 
