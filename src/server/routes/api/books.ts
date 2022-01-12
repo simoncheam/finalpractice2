@@ -11,7 +11,7 @@ const router = express.Router();
 router.get('/', async (req, res) => {
 
     try {
-        const results = await booksDB.get_all();
+        const results = await booksDB.get_all_joined();
         res.status(200).json(results);
 
     } catch (error) {
@@ -29,7 +29,7 @@ router.get('/:id', async (req, res) => {
     try {
         const [oneBookresults] = await booksDB.get_one_by_id(id);
 
-        if(!oneBookresults){
+        if (!oneBookresults) {
             res.status(201).json({ message: "Book doesn't exist!" });
         }
 
@@ -69,7 +69,7 @@ router.post('/', tokenCheck, async (req, res) => {
 })
 
 //put ✅ OK
-router.put('/:id',tokenCheck, async (req, res) => {
+router.put('/:id', tokenCheck, async (req, res) => {
     try {
         const id = Number(req.params.id);
 
@@ -94,7 +94,7 @@ router.put('/:id',tokenCheck, async (req, res) => {
 })
 
 //delete ✅ OK
-router.delete('/:id',tokenCheck, async (req, res) => {
+router.delete('/:id', tokenCheck, async (req, res) => {
 
     const id = Number(req.params.id);
 

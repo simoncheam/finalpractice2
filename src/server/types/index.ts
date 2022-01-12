@@ -30,6 +30,22 @@ export interface Books {
 
 }
 
+export interface BooksJoined {
+    id?: number;
+    categoryid?: number;
+    categoryname?: string;
+    title?: string;
+    author?: string;
+    price?: number;
+    _created?: string;
+
+}
+
+
+
+
+
+
 export interface Categories {
     id?: number;
     name: string;
@@ -37,5 +53,5 @@ export interface Categories {
 
 export interface Payload extends UsersTable {
     id?: number;
-    role?:number;
+    role?: number;
 }
