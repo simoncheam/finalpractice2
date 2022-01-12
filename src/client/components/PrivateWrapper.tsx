@@ -33,14 +33,11 @@ const PrivateWrapper = ({ children }: PrivateRouteProps) => {
     if (!isAuthed) {
         return <Navigate to='/login' />
     } else {
-        console.log('enter private router');
         return (
             <>
-                {/* <h1>private route</h1> */}
                 {children}
 
                 <Outlet />
-                {/* outlet lets you do nested routes */}
 
             </>
         )

@@ -21,7 +21,8 @@ const Navbar = (props: INavbarProps) => {
 
             })
             .catch(e => {
-                console.log(e)
+                // console.log(e)
+
             })
 
     }, [loc.pathname])
@@ -44,7 +45,7 @@ const Navbar = (props: INavbarProps) => {
             }
             {isAuthed &&
 
-                <Link type='button' className='btn btn-primary m-2' onClick={() => localStorage.removeItem('token')} to='/login'>Signout </Link>
+                <Link type='button' className='btn btn-primary m-2' onClick={() => { localStorage.removeItem('token'); location.reload() }} to='/login'>Signout </Link>
             }
         </div>
     )
