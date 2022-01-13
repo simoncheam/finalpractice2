@@ -25,16 +25,18 @@ const Home = () => {
 
     return (
         <div className="row m-2 justify-content-center">
+
             <h1 className="row my-5 m-2 ">Welcome to the bookstore</h1>
+
             <Link type='button' className='row btn btn-primary m-2' to='/books'> Check out the books</Link>
+
             {!isAuthed &&
                 <Link type='button' className='row btn btn-primary m-2' to='/register'> Register Here</Link>
             }
-            {!isAuthed &&
 
+            {!isAuthed &&
                 <Link type='button' className='row btn btn-primary m-2' to='/login'> Login</Link>
             }
-
 
         </div>
     )

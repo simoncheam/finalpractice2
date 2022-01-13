@@ -31,7 +31,10 @@ const NewBook = () => {
 
     }, [])
 
-    const handleCategoryIdSelectUpdate = (e: React.ChangeEvent<HTMLSelectElement>) => { setsSelectedCatergoryId(Number(e.target.value)) }
+    const handleCategoryIdSelectUpdate = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        setsSelectedCatergoryId(Number(e.target.value))
+    }
+
     const handleSubmitButton = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
 
@@ -55,22 +58,11 @@ const NewBook = () => {
             .catch(e => {
                 console.log(e)
             })
-
-
     }
-
-
-
-
-
-
-
-
 
 
     return (
         <div>
-            {/* <h1>create new book</h1> */}
 
             <main className="container my-5">
                 <section className="row justify-content-center">
@@ -82,11 +74,9 @@ const NewBook = () => {
                                 <h1>Complete the fields below to begin: </h1>
                                 <div className="form-group m-2">
 
-
                                     <label className='row m-2'>Select Category:</label>
 
                                     {/* // * select menu ! */}
-
                                     <select value={selectedCatergoryId} onChange={handleCategoryIdSelectUpdate} className='form-control'>
 
                                         {/* // * Options outer */}
@@ -96,7 +86,6 @@ const NewBook = () => {
                                         {categories.map(cat => (
 
                                             // * Options-inner: inside the mapped array
-
                                             <option key={`category-${cat.id}-${cat.name}`} value={cat.id}>
                                                 {cat.name}
                                             </option>

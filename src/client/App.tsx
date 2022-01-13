@@ -41,8 +41,7 @@ const App = () => {
 					<Route path="/books" element={<Books />}></Route>
 
 
-					{/* create, update, delete routes need to be private */}
-					{/* //? typing issue  */}
+
 
 					<Route path="/" element={< PrivateWrapper />}>
 

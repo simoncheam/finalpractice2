@@ -1,6 +1,6 @@
 import * as mysql from 'mysql';
-import { database_config } from '../config';
 import { MySQL_Default_Response } from '../types';
+import { database_config } from '../config';
 
 const pool = mysql.createPool(database_config);
 
@@ -9,10 +9,11 @@ export const Query = <T = MySQL_Default_Response>(
 
     return new Promise<T>((resolve, reject) => {
 
-        const formatted_sql = mysql.format(sql_string, values)
-        console.log({ formatted_sql });
+        const formatted_sql = mysql.format(sql_string, values);
+        console.log({ formatted_sql })
 
         pool.query(formatted_sql, (err, results) => {
+
             if (err) {
                 reject(err)
             } else {

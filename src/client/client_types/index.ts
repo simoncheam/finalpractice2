@@ -1,8 +1,4 @@
 
-export interface MySQL_Default_Response {
-    insertId: number;
-    affectedRows: number;
-}
 
 export interface Users {
     id?: number;
@@ -20,8 +16,8 @@ export interface BooksJoined {
     b_author?: string;
     b_price?: number;
     b__created?: string;
-
 }
+
 export interface Books {
     id?: number;
     categoryid?: number;

@@ -11,7 +11,6 @@ const BookDetail = () => {
     const book_id = params.id
     const nav = useNavigate();
 
-
     const [book, setBook] = useState<Books>()
     const [category, setCategory] = useState<Categories>()
     const [isLoaded, setIsLoaded] = useState<boolean>(false)
@@ -35,7 +34,6 @@ const BookDetail = () => {
                     })
             })
 
-
     }, [isLoaded])
 
 
@@ -48,32 +46,23 @@ const BookDetail = () => {
 
 
             APIService(`/api/books/${book_id}`, 'DELETE', {
-
-
             })
                 .then(data => {
 
                     alert('Book deleted!');
                     nav(`/books`)
 
-
                 })
                 .catch(e => {
                     console.log(e)
                 })
-
         }
-
-
     }
 
     if (!book || !category) { return <> Loading...</> }
 
-
-
     return (
         <div>
-
 
             <div className="row justify-content-center m-2">
                 <div className="col-md-6">

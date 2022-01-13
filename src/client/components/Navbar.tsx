@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
 import { APIService } from '../services/APIService';
 
@@ -8,6 +8,7 @@ import { APIService } from '../services/APIService';
 const Navbar = (props: INavbarProps) => {
     const [isAuthed, setIsAuthed] = useState(false)
     const loc = useLocation();
+    const nav = useNavigate();
 
 
     useEffect(() => {
@@ -28,6 +29,17 @@ const Navbar = (props: INavbarProps) => {
     }, [loc.pathname])
 
 
+    const Signout = (e: React.MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
+
+        localStorage.removeItem('token')
+        alert('you are now signed out');
+        setIsAuthed(false);
+        nav('/login');
+
+    }
+
+
 
     return (
         <div className='bg-success'>
@@ -45,7 +57,8 @@ const Navbar = (props: INavbarProps) => {
             }
             {isAuthed &&
 
-                <Link type='button' className='btn btn-primary m-2' onClick={() => { localStorage.removeItem('token'); location.reload() }} to='/login'>Signout </Link>
+                //! change link to button
+                <button type='button' className='btn btn-primary m-2' onClick={Signout} >Signout </button>
             }
         </div>
     )

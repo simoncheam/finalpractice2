@@ -10,7 +10,6 @@ const Edit = () => {
     let params = useParams();
     const book_id = params.id;
 
-
     const [selectedCatergoryId, setsSelectedCatergoryId] = useState<number>(0);
     const [author, setAuthor] = useState<string>('');
     const [title, setTitle] = useState<string>('');
@@ -44,30 +43,24 @@ const Edit = () => {
             );
 
 
-
     }, [])
 
     if (!book) { return <> Loading...</> }
 
 
 
-    const handleCategoryIdSelectUpdate = (e: React.ChangeEvent<HTMLSelectElement>) => { setsSelectedCatergoryId(Number(e.target.value)) }
-
-
-
-    // ! edit function
-
+    const handleCategoryIdSelectUpdate = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        setsSelectedCatergoryId(Number(e.target.value))
+    }
 
 
     const handleUpdateButton = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
 
-        // ! input val
         if (!selectedCatergoryId || !title || !author || !price) return alert('Update all fields please:)')
 
         APIService(`/api/books/${book_id}`, 'PUT', {
 
-            // Book and categorie state
             categoryid: selectedCatergoryId,
             title: title,
             author: author,
@@ -85,13 +78,7 @@ const Edit = () => {
             .catch(e => {
                 console.log(e)
             })
-
-
-
-
     }
-
-
 
 
     return (
@@ -106,7 +93,6 @@ const Edit = () => {
                             <div className="card-body">
                                 <h1>Update your book below: </h1>
                                 <div className="form-group m-2">
-
 
                                     <label className='row m-2'>Select Category:</label>
 
@@ -129,7 +115,6 @@ const Edit = () => {
                                         ))}
                                     </select>
 
-
                                     {/* // author */}
                                     <label className='row m-2'>Author:</label>
                                     <input type='text'
@@ -148,8 +133,8 @@ const Edit = () => {
                                             setTitle(e.target.value)}
                                         value={title}
                                         placeholder={title}
-
                                     />
+
                                     {/* // price */}
                                     <label className='row m-2'>Price:</label>
                                     <input type='number'
@@ -157,11 +142,7 @@ const Edit = () => {
                                         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                                             setPrice(Number(e.target.value))}
                                         value={price}
-
-
                                     />
-
-
 
 
                                     <button onClick={() => nav(-1)} className='row btn btn-primary m-2' >Go Back</button>
@@ -170,11 +151,7 @@ const Edit = () => {
                                     </button>
                                 </div>
 
-
-
                             </div>
-
-
 
                         </div>
 
